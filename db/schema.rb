@@ -24,6 +24,11 @@ ActiveRecord::Schema.define(version: 20160504114322) do
     t.datetime "updated_at",               null: false
   end
 
+  create_table "foods_stores", force: :cascade do |t|
+    t.integer "store_id"
+    t.integer "food_id"
+  end
+
   create_table "histories", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "food_id"
@@ -74,11 +79,6 @@ ActiveRecord::Schema.define(version: 20160504114322) do
     t.decimal  "lng"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "stores_foods", force: :cascade do |t|
-    t.integer "store_id"
-    t.integer "food_id"
   end
 
   create_table "users", force: :cascade do |t|

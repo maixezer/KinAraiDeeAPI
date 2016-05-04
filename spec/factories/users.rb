@@ -1,4 +1,11 @@
 FactoryGirl.define do
+  factory :god, class: 'User' do
+    email 'god@kad.com'
+    password '12345678'
+    first_name 'god'
+    last_name 'damn'
+  end
+
   factory :user do
     email { FFaker::Internet.email }
     password '12345678'
