@@ -3,12 +3,13 @@ class User < ApplicationRecord
 
   validates :email,
             presence: true,
-            uniqueness: true
+            uniqueness: true,
+            format: {with: /^.+@.+$/}
 
   validates :password,
-            presence: { if: :password_required? },
-            confirmation: { if: :password_required? },
-            length: { within: Devise.password_length, allow_blank: true }
+            presence: {if: :password_required?},
+            confirmation: {if: :password_required?},
+            length: {within: Devise.password_length, allow_blank: true}
 
   private
 
