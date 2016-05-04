@@ -2,7 +2,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable
 
   validates :email,
-            email_format: true,
             presence: true,
             uniqueness: true
 
