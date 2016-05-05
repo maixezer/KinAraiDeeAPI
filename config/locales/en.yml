@@ -1,2 +1,5 @@
 en:
-  hello: "Hello world"
+  application:
+      name: KinAraiDee
+  authroization:
+    unauthorized: unauthorized
