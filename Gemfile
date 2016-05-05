@@ -17,7 +17,7 @@ gem 'puma', '~> 3.0'
 
 # Authentications & Authorizations
 gem 'devise' # Authentication solution for Rails with Warden
-gem 'doorkeeper' # OAuth 2 provider
+gem 'doorkeeper', '~> 4.0.0.rc3' # OAuth 2 provider
 gem 'cancancan', '~> 1.10' # Continuation of CanCan, the authorization Gem for Ruby on Rails.
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
