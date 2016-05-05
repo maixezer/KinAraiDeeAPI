@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe User, :type => :model do
+RSpec.describe User, type: :model do
   context 'db' do
     context 'columns' do
       it { should have_db_column(:email).of_type(:string).with_options(null: false) }
@@ -25,6 +25,10 @@ RSpec.describe User, :type => :model do
 
       it 'checks email presence' do
         expect(valid_user).to validate_presence_of(:email)
+      end
+
+      it 'checks email uniqueness' do
+        expect(valid_user).to validate_uniqueness_of(:email).ignoring_case_sensitivity
       end
 
       it 'checks validity of email' do

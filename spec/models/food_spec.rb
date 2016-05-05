@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Food, :type => :model do
+RSpec.describe Food, type: :model do
   context 'db' do
     context 'columns' do
       it { should have_db_column(:name).of_type(:string) }
