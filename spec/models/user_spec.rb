@@ -53,7 +53,7 @@ RSpec.describe User, :type => :model do
       subject { invalid_user.errors }
       it { is_expected.to include :email }
 
-      context 'with uniqueness error message' do
+      context 'with presence error message' do
         subject { invalid_user.errors.messages[:email][0] }
         it { is_expected.to eq %q(can't be blank) }
       end

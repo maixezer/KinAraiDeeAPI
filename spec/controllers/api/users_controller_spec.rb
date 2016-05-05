@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Api::V1::UsersController do
+RSpec.describe Api::V1::UsersController, type: :controller do
   let(:application) { FactoryGirl.create(:origin_application) }
   let(:user) { FactoryGirl.create(:user) }
   let(:users) { (0..2).map { FactoryGirl.create(:user) } }

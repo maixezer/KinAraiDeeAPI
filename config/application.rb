@@ -26,8 +26,10 @@ module KinAraiDeeAPI
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
-    config.middleware.use Rack::Attack
 
-    config.eager_load_paths += %W(#{config.root}/app/serializers)
+    config.middleware.use Rack::Attack
+    config.middleware.use ActionDispatch::Flash
+    config.middleware.use Rack::MethodOverride
+    config.middleware.use ActionDispatch::Cookies
   end
 end
