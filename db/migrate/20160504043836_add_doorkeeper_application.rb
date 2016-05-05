@@ -2,7 +2,7 @@ class AddDoorkeeperApplication < ActiveRecord::Migration[5.0]
   def up
     case Rails.env
       when "production"
-        redirect_uri = "https://kin-arai-dee-staging.herokuapp.com/callback"
+        redirect_uri = "https://kin-arai-dee.herokuapp.com/callback"
 
         origin_uid = "a9ecda448c7f532c211ed8c751712b87f29d29301045eb0f376674f14fea4e80c66f97482058e05297302c0ca720529ebd996f55ce374d3cffa7024427efff17"
         origin_secret = "0f4ada3be259f7dcce13b62f425f1009c4d55ad76c13d348e096c5b24b9a48a160facc8ad2de7107f90e19ca06e9dd003688d15f059866f0730223ee74f21e5f"
