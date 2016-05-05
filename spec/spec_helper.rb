@@ -25,6 +25,6 @@ RSpec.configure do |config|
 
   # run retry only on features
   config.around :each do |ex|
-    ex.run_with_retry retry: 3, retry_wait: 1
+    ex.run_with_retry retry: 10, retry_wait: 1
   end
 end
