@@ -4,6 +4,7 @@ FactoryGirl.define do
     password '12345678'
     first_name 'god'
     last_name 'damn'
+    roles :god
   end
 
   factory :user do

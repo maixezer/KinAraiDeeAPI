@@ -16,6 +16,8 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, presence: true
 
+  before_create :set_default_roles
+
   ROLES = %i(god account_owner)
 
   def roles=(roles)
@@ -34,6 +36,10 @@ class User < ApplicationRecord
   end
 
   private
+
+  def set_default_roles
+    self.roles = :account_owner if self.roles.empty?
+  end
 
   def password_required?
     !persisted? || !password.nil? || !password_confirmation.nil?

@@ -11,6 +11,7 @@ class Ability
     if user.has_role?(:account_owner)
       can :read, Food
       can :read, Store
+      can :manage, User, id: user.id
       can :manage, History, user_id: user.id
     end
   end
