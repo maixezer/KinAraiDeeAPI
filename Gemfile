@@ -47,3 +47,8 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+group :production do
+  gem 'rails_12factor' # Makes running your Rails app easier. Based on the ideas behind 12factor.net (Heroku)
+  gem 'rack-timeout' # Rack middleware which aborts requests that have been running for longer than a specified timeout.
+end
