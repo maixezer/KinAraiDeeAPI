@@ -31,7 +31,5 @@ module KinAraiDeeAPI
     config.middleware.use ActionDispatch::Flash
     config.middleware.use Rack::MethodOverride
     config.middleware.use ActionDispatch::Cookies
-
-    config.eager_load_paths += %W(#{config.root}/app/serializers)
   end
 end
