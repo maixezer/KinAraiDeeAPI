@@ -24,6 +24,8 @@ gem 'cancancan', '~> 1.10' # Continuation of CanCan, the authorization Gem for R
 gem 'rack-cors'
 gem 'rack-attack'
 
+gem 'activeadmin', github: 'activeadmin'
+
 group :development, :test do
   gem 'figaro' # Simple Rails app configuration
   gem 'rspec-rails' # Rails testing engine

@@ -18,5 +18,4 @@ end
   account_owners[i].foods << foods.sample(3)
 end
 
-
-
+AdminUser.create!(email: 'god@kad.com', password: '12345678', password_confirmation: '12345678')
