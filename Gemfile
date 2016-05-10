@@ -5,7 +5,7 @@ ruby '2.3.0'
 # Backend
 gem 'rails', '>= 5.0.0.beta4', '< 5.1' # Latest stable
 gem 'pg' # Use Postgresql as database
-gem 'active_model_serializers', '~> 0.10.0.rc4' # ActiveModel::Serializer implementation and Rails hooks
+gem 'active_model_serializers', '~> 0.9.5' # ActiveModel::Serializer implementation and Rails hooks
 gem 'carrierwave' # Classier solution for file uploads for Rails
 gem 'carrierwave-aws'
 gem 'mini_magick' # A ruby wrapper for ImageMagick or GraphicsMagick command line
