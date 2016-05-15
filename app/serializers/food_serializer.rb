@@ -10,6 +10,6 @@ class FoodSerializer < ActiveModel::Serializer
   has_many :stores
 
   def image
-    object.image.medium.url
+    object.image.url
   end
 end
