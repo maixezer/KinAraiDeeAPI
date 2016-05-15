@@ -14,9 +14,9 @@ class Food < ApplicationRecord
 
   def self.search(options)
     query = where(nil)
-    query = where(calories: options[:min_calories]..options[:max_calories]) if options[:min_calories].present? && options[:max_calories].present?
-    query = where("tags @> ARRAY[?]::text[]", options[:like_tags]) if options[:like_tags].present?
-    query = where.not("tags @> ARRAY[?]::text[]", options[:dislike_tags]) if options[:dislike_tags].present?
+    query = query.where(calories: options[:min_calories]..options[:max_calories]) if options[:min_calories].present? && options[:max_calories].present?
+    query = query.where("tags @> ARRAY[?]::text[]", options[:like_tags]) if options[:like_tags].present?
+    query = query.where.not("tags @> ARRAY[?]::text[]", options[:dislike_tags]) if options[:dislike_tags].present?
     query
   end
 
