@@ -1,5 +1,5 @@
 class Food < ApplicationRecord
-  has_and_belongs_to_many :stores
+  has_and_belongs_to_many :stores, join_table: 'foods_stores'
 
   has_many :histories
   has_many :users, through: :histories
@@ -18,5 +18,14 @@ class Food < ApplicationRecord
     query = where("tags @> ARRAY[?]::text[]", options[:like_tags]) if options[:like_tags].present?
     query = where.not("tags @> ARRAY[?]::text[]", options[:dislike_tags]) if options[:dislike_tags].present?
     query
+  end
+
+  def tags_raw
+    self.tags.join(',') unless self.tags.nil?
+  end
+
+  def tags_raw=(values)
+    self.tags = []
+    self.tags = values.split(',')
   end
 end

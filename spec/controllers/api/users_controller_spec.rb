@@ -13,7 +13,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
       before { get :show, params: {id: 'me', access_token: access_token.token} }
 
       it { expect(response).to have_http_status(:ok) }
-      it { expect(JSON.parse(response.body)['email']).to eq user.email }
+      it { expect(JSON.parse(response.body)['user']['email']).to eq user.email }
     end
 
     context 'cannot access other user information' do

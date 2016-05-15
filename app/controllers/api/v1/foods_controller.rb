@@ -8,8 +8,8 @@ class Api::V1::FoodsController < Api::V1::ApiController
     filters = {}
     filters[:min_calories] = params[:min_calories] unless params[:min_calories].blank?
     filters[:max_calories] = params[:max_calories] unless params[:max_calories].blank?
-    filters[:like_tags] = params[:like_tags] unless params[:like_tags].blank?
-    filters[:dislike_tags] = params[:dislike_tags] unless params[:dislike_tags].blank?
+    filters[:like_tags] = params[:like_tags].split(',') unless params[:like_tags].blank?
+    filters[:dislike_tags] = params[:dislike_tags].split(',') unless params[:dislike_tags].blank?
 
     @foods = Food
                .accessible_by(current_ability)

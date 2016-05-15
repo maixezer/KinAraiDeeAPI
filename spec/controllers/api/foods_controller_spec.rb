@@ -16,24 +16,24 @@ RSpec.describe Api::V1::FoodsController, type: :controller do
     end
 
     context 'random food by filter query [min and max calories]' do
-      before { get :index, params: {min_calories: '234', max_calories: '400', access_token: access_token.token} }
+      before { get :index, params: {min_calories: '100', max_calories: '700', access_token: access_token.token} }
 
       it { expect(response).to have_http_status(:ok) }
-      it { expect(JSON.parse(response.body)['calories']).to be_between(234, 400) }
+      it { expect(JSON.parse(response.body)['food']['calories'].to_i).to be_between(100, 700) }
     end
 
     context 'random food by filter query [like tags]' do
-      before { get :index, params: {like_tags: %w(ข้าว ต้ม), access_token: access_token.token} }
+      before { get :index, params: {like_tags: %q(ข้าว,ต้ม), access_token: access_token.token} }
 
       it { expect(response).to have_http_status(:ok) }
-      it { expect(JSON.parse(response.body)['tags']).to include('ข้าว', 'ต้ม') }
+      it { expect(JSON.parse(response.body)['food']['tags']).to include('ข้าว', 'ต้ม') }
     end
 
     context 'random food by filter query [dislike tags]' do
-      before { get :index, params: {dislike_tags: %w(ข้าว ต้ม), access_token: access_token.token} }
+      before { get :index, params: {dislike_tags: %q(ข้าว,ต้ม), access_token: access_token.token} }
 
       it { expect(response).to have_http_status(:ok) }
-      it { expect(JSON.parse(response.body)['tags']).not_to include('ข้าว', 'ต้ม') }
+      it { expect(JSON.parse(response.body)['food']['tags']).not_to include('ข้าว', 'ต้ม') }
     end
   end
 end

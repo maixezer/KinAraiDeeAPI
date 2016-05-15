@@ -14,7 +14,7 @@ RSpec.describe Api::V1::HistoriesController, type: :controller do
       before { get :index, params: {access_token: access_token.token} }
 
       it { expect(response).to have_http_status(:ok) }
-      it { expect(JSON.parse(response.body).count).to eq histories.size }
+      it { expect(JSON.parse(response.body)['histories'].count).to eq histories.size }
     end
   end
 
@@ -24,8 +24,8 @@ RSpec.describe Api::V1::HistoriesController, type: :controller do
       before { get :show, params: {id: sample_history.id, access_token: access_token.token} }
 
       it { expect(response).to have_http_status(:ok) }
-      it { expect(JSON.parse(response.body)['user']['email']).to eq sample_history.user.email }
-      it { expect(JSON.parse(response.body)['food']['name']).to eq sample_history.food.name }
+      it { expect(JSON.parse(response.body)['history']['user']['email']).to eq sample_history.user.email }
+      it { expect(JSON.parse(response.body)['history']['food']['name']).to eq sample_history.food.name }
     end
 
     context 'when history not exists' do
@@ -46,8 +46,8 @@ RSpec.describe Api::V1::HistoriesController, type: :controller do
       before { post :create, params: {history: valid_history, access_token: access_token.token} }
 
       it { expect(response).to have_http_status(:created) }
-      it { expect(JSON.parse(response.body)['user']['email']).to eq user.email }
-      it { expect(JSON.parse(response.body)['food']['name']).to eq sample_food.name }
+      it { expect(JSON.parse(response.body)['history']['user']['email']).to eq user.email }
+      it { expect(JSON.parse(response.body)['history']['food']['name']).to eq sample_food.name }
     end
 
     context 'when params is invalid' do
