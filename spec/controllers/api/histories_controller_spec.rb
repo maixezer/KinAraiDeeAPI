@@ -58,4 +58,14 @@ RSpec.describe Api::V1::HistoriesController, type: :controller do
       it { expect(JSON.parse(response.body)['errors'][0]).to match(/can't.*blank/i) }
     end
   end
+
+  describe 'DELETE #destroy' do
+    let(:sample_history) { histories.sample }
+
+    context 'delete history successfully' do
+      before { delete :destroy, params: {id: sample_history.id, access_token: access_token.token} }
+
+      it { expect(response).to have_http_status(:no_content) }
+    end
+  end
 end

@@ -24,6 +24,6 @@ Rails.application.routes.draw do
   scope 'api/v1', module: 'api/v1' do
     resources :users, only: [:index, :show]
     resources :foods, only: [:index, :show]
-    resources :histories, only: [:index, :show, :create]
+    resources :histories, only: [:index, :show, :create, :destroy]
   end
 end
