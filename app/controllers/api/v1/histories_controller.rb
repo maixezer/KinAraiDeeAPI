@@ -21,6 +21,14 @@ class Api::V1::HistoriesController < Api::V1::ApiController
     end
   end
 
+  def destroy
+    if @history.destroy
+      render nothing: true, status: :no_content
+    else
+      render json: {errors: [@history.errors.full_messages.to_sentence]}, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def history_params
